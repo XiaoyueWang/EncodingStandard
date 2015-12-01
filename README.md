@@ -52,7 +52,7 @@
 
 		@property (nonatomic, copy) NSArray *dataArray;/**< 数据 */
 	
-	![property_1.png](/Users/UncleChen/Desktop/image/property_1.png)
+	![Alt text](/image/property_1.png)
 
 7.  定义block属性，对象回调的时候使用
  
@@ -121,7 +121,7 @@
 3. 三级：按照MVVM架构划分，model/view/viewModel
 
 	例子：
-		![directoryStructure_1.png](/Users/UncleChen/Desktop/image/directoryStructure_1.png)
+		![Alt text](/image/directoryStructure_1.png)
 		
 4. 业务逻辑处理尽量放到viewModel中，给controller和view瘦身
 		
