@@ -11,18 +11,18 @@
 3. 尽量使用属性代替全局变量，增强扩展性
 	
 #属性
-1.  ‘@property’与‘(’之间留有一个空格
-2.  关键字之间用‘, ’分割，注意空格
-3.  ‘)’与数据类型之间留有一个空
+1.  `@property`与`()`之间留有一个空格
+2.  关键字之间用`, `分割，注意逗号后的空格
+3.  `()`与数据类型之间留有一个空
 
 	例子：
 
 		@property (nonatomic, strong) UIButton *submitButton;
 
 4.  关键字书写顺序，按照
-	* 原子性（atomic--默认、nonatomic）
-	* 存储器控制（readwrite--默认、readonly），若‘readwrite’可以省略
-	* 内存管理（assign--默认、retian、strong、weak、copy）
+	* 原子性（`atomic`--默认、`nonatomic`）
+	* 存储器控制（`readwrite`--默认、`readonly`），若`readwrite`可以省略
+	* 内存管理（`assign`--默认、`retian`、`strong`、`weak`、`copy`）
 
 	例子：
 
@@ -36,7 +36,7 @@
 		@property (nonatomic, copy) NSString *URL;
 		@property (nonatomic, readonly, assign) NSInteger flag;
 
-5.  NSString、NSArray、NSDictionary、NSMutableArray、NSMutableDictionary使用‘copy’关键字，防止对象引用后，修改属性值对对象原始值的影响
+5.  `NSString、NSArray、NSDictionary、NSMutableArray、NSMutableDictionary`使用`copy`关键字，防止对象引用后，修改属性值对对象原始值的影响
 
 	例子：
 
@@ -46,13 +46,17 @@
 		@property (nonatomic, copy) NSMutableArray *dataMutArray;
 		@property (nonatomic, copy) NSMutableDictionary *dataMutDic;
 
-6. 可以使用‘/\*\*< XXX \*/’方式进行注释说明，在调用属性时有提示信息
- 
-	例子：
-
-		@property (nonatomic, copy) NSArray *dataArray;/**< 数据 */
+6. 变量：`/**< xxx */` 、 `///< xxx` 和 `/// xxx` 效果是一样的
+	<p>一行代码不是很长，加注释也不需要换行，使用///< xxx 
+	<p>一行代码比较长时，加注释会换行，使用/// xxx
 	
-	![property_1.png](/Users/UncleChen/Desktop/image/property_1.png)
+	例子：
+		
+		@property (nonatomic, strong) NSArray *dataArray; /**< 数据 */
+		@property (nonatomic, strong) NSArray *dataArray; ///< 数据
+		///< 数据 
+		@property (nonatomic, strong) NSArray *dataArray;
+	![Alt text](/image/property_1.png)
 
 7.  定义block属性，对象回调的时候使用
  
@@ -112,16 +116,54 @@
 		- (void)radioButton:(CRadioButton *)radioButton didSelectButtonAtParam:(NSString *)param {
 			// your code ...
 		}
+		
+5. 注释：/// xxx
+
+	例子：
+	
+		/// 临时缓存目录，APP退出后，系统可能会删除这里的内容
+		+ (NSString *)tmpPath;
+	![Alt text](/image/function_1.png)
+		
+#注释
+1. 变量：`/**< xxx */` 、 `///< xxx` 和 `/// xxx` 效果是一样的
+	<p>一行代码不是很长，加注释也不需要换行，使用`///< xxx`
+	<p>一行代码比较长时，加注释会换行，使用`/// xxx`
+	
+	例子：
+		
+		@property (nonatomic, strong) NSArray *dataArray; /**< 数据 */
+		@property (nonatomic, strong) NSArray *dataArray; ///< 数据
+		///< 数据 
+		@property (nonatomic, strong) NSArray *dataArray;
+	![Alt text](/image/property_1.png)
+2. 方法：`/// xxx`
+
+	例子：
+	
+		/// 临时缓存目录，APP退出后，系统可能会删除这里的内容
+		+ (NSString *)tmpPath;
+	![Alt text](/image/function_1.png)
+3. 类名：`/// xxx`
+
+	例子：
+	
+		/// sandbox 帮助类
+		@interface UCSandboxHelper : NSObject
+	![Alt text](/image/class_1.png)
+	
+#宏定义
+宏定义详情[点这里](http://example.net/)
 
 #目录结构
 自定义的文件全部放到自定义的目录当中
 
-1. 一级：公司的组织架构，com.bonc
+1. 一级：公司的组织架构，`com.bonc`
 2. 二级：按照模块划分
-3. 三级：按照MVVM架构划分，model/view/viewModel
+3. 三级：按照MVVM架构划分，`model/view/viewModel`
 
 	例子：
-		![directoryStructure_1.png](/Users/UncleChen/Desktop/image/directoryStructure_1.png)
+		![Alt text](/image/directoryStructure_1.png)
 		
 4. 业务逻辑处理尽量放到viewModel中，给controller和view瘦身
 		
@@ -136,7 +178,7 @@
 	
 #注意事项
 ###公共
-1. 每行代码尽量控制在80个字符以内，可以在Xcode进行设置Page guide
+1. 每行代码尽量控制在80个字符以内，可以在Xcode进行设置`Page guide`
 	
 		Xcode -> Preferences... -> Text Editing -> Page guide at column:
 
